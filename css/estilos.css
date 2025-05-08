@@ -24,6 +24,7 @@ th, td {
     padding: 10px;
     text-align: left;
 }
+
 a.button {
     display: inline-block;
     padding: 10px 15px;
@@ -32,6 +33,25 @@ a.button {
     text-decoration: none;
     border-radius: 5px;
 }
+
 a.button:hover {
     background-color: #0056b3;
 }
+
+
+/* Intergración de Estilos CSS */
+
+.fondo_menu {
+    background: #333;
+    padding: 10px;
+
+}
+
+/*
+.item_menu {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    margin-right: 15px;
+}
+*/

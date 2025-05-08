@@ -1,5 +1,8 @@
-<div style="background:#333; padding:10px;">
-    <a href="empleados.php" style="color:white; margin-right:15px;">Empleados</a>
-    <a href="embargos.php" style="color:white; margin-right:15px;">Embargos</a>
-    <a href="exportar.php" style="color:white;">Exportar TSV</a>
+<div>
+    <h1>Sistema de Gestión de Embargos - Ingenio Rio Grande</h1>
+</div>
+<div class="fondo_menu">
+    <a href="empleados.php" class="item_menu">Empleados</a>
+    <a href="embargos.php" class="item_menu">Embargos</a>
+    <a href="exportar.php" class="item_menu">Exportar TSV</a>
 </div>
