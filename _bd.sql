@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS embargos;
-USE embargos;
+CREATE DATABASE IF NOT EXISTS gestion_embargos;
+USE gestion_embargos;
 
 CREATE TABLE empleados (
   id INT AUTO_INCREMENT PRIMARY KEY,
