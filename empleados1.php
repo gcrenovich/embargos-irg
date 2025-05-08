@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Título de la página</title>
-    <!-- enlace a tu hoja de estilos -->
-    <link rel="stylesheet" href="css/estilos.css">
-</head>
-<body>
-    <?php include 'includes/menu.php'; ?>
-    <div class="contenido">
 <?php
 include 'includes/db.php';
 $result = $mysqli->query("SELECT legajo, nombre, apellido, remunerativo, no_remunerativo, activo FROM empleados");
@@ -45,8 +34,5 @@ $result = $mysqli->query("SELECT legajo, nombre, apellido, remunerativo, no_remu
             </tr>
         <?php endwhile; ?>
     </table>
-</body>
-</html>
-  </div><!-- /.contenido -->
 </body>
 </html>
