@@ -17,8 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <?php include 'includes/menu.php'; ?>
+
 <div class="container">
     <h1>Agregar Empleado</h1>
+    
     <form method="post">
         <label>Legajo: <input type="number" name="legajo" required></label><br><br>
         <label>Nombre: <input type="text" name="nombre" required></label><br><br>
@@ -27,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label>No Remunerativo: <input type="number" step="0.01" name="no_remunerativo" required></label><br><br>
         <input type="submit" value="Guardar">
     </form>
+
 </div>
 </body>
 </html>

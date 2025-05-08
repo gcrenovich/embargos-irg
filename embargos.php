@@ -2,38 +2,36 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Título de la página</title>
+    <title>Embargos</title>
     <!-- enlace a tu hoja de estilos -->
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-    <?php include 'includes/menu.php'; ?>
+    <?php 
+        include 'includes/menu.php'; 
+    ?>
     <div class="contenido">
-<?php
-include 'includes/db.php';
+    <?php
+        include 'includes/db.php';
 
-// Auto-finalizar embargos comerciales y de vivienda
-$mysqli->query("UPDATE embargos 
-    SET estado='finalizado' 
-    WHERE codigo IN (451,452,591) 
-      AND monto_acumulado >= monto_total 
-      AND estado='activo'");
+        // Auto-finalizar embargos comerciales y de vivienda
+        $mysqli->query("UPDATE embargos 
+            SET estado='finalizado' 
+            WHERE codigo IN (451,452,591) 
+            AND monto_acumulado >= monto_total 
+            AND estado='activo'");
 
-// Obtener todos los embargos
-$result = $mysqli->query("SELECT e.id, e.empleado_id, emp.nombre, emp.apellido, e.codigo, e.porcentaje, e.expediente, e.oficio, e.cuenta_bancaria, e.monto_total, e.monto_acumulado, e.estado 
-    FROM embargos e 
-    JOIN empleados emp ON e.empleado_id = emp.legajo");
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Embargos</title>
-</head>
-<body>
+        // Obtener todos los embargos
+        $result = $mysqli->query("SELECT e.id, e.empleado_id, emp.nombre, emp.apellido, e.codigo, e.porcentaje, e.expediente, e.oficio, e.cuenta_bancaria, e.monto_total, e.monto_acumulado, e.estado 
+            FROM embargos e 
+            JOIN empleados emp ON e.empleado_id = emp.legajo");
+    ?>
     <h1>Listado de Embargos</h1>
-    <a href="nuevo_embargo.php">Nuevo Embargo</a><br><br>
-    <table border="1" cellpadding="5" cellspacing="0">
+    <a href="nuevo_embargo.php">
+        <button>Nuevo Embargo</button>
+    </a>
+    <br>
+    <table class="tabla-1">
         <tr>
             <th>ID</th><th>Empleado</th><th>Código</th><th>%</th><th>Expediente</th><th>Oficio</th><th>Cuenta</th><th>Monto Total</th><th>Monto Acumulado</th><th>Estado</th><th>Acciones</th>
         </tr>
@@ -64,8 +62,7 @@ $result = $mysqli->query("SELECT e.id, e.empleado_id, emp.nombre, emp.apellido, 
             </tr>
         <?php endwhile; ?>
     </table>
+    </div><!-- /.contenido -->
 </body>
 </html>
-  </div><!-- /.contenido -->
-</body>
-</html>
+

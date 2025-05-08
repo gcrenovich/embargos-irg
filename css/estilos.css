@@ -50,9 +50,16 @@ a:visited {
 
 .tabla-1 {
     width: 100%;
-    border-collapse: collapse;
     margin-top: 20px;
-    border: 1px;
+    border: 1px solid black; /* Equivalente a border="1" */
+    border-collapse: collapse; /* Equivalente a cellspacing="0" */
+}
+
+.tabla-1 th,td {
+    padding: 5px; /* Equivalente a cellpadding="5" */
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: left;
 }
 
 /*
