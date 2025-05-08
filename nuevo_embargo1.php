@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Título de la página</title>
-    <!-- enlace a tu hoja de estilos -->
-    <link rel="stylesheet" href="css/estilos.css">
-</head>
-<body>
-    <?php include 'includes/menu.php'; ?>
-    <div class="contenido">
 <?php
 include 'includes/db.php';
 
@@ -62,8 +51,5 @@ $emps = $mysqli->query("SELECT legajo, nombre, apellido FROM empleados WHERE act
         <button type="submit">Guardar</button>
     </form>
     <a href="embargos.php">Volver al listado</a>
-</body>
-</html>
-  </div><!-- /.contenido -->
 </body>
 </html>
