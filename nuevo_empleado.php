@@ -20,7 +20,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <div class="container">
     <h1>Agregar Empleado</h1>
-    
+   
+    <form method="post">
+    <div class="form-group">
+        <label for="legajo">Legajo</label>
+        <input type="number" name="legajo" id="legajo" required>
+    </div>
+
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre" required>
+    </div>
+
+    <div class="form-group">
+        <label for="apellido">Apellido</label>
+        <input type="text" name="apellido" id="apellido" required>
+    </div>
+
+    <div class="form-group">
+        <label for="remunerativo">Remunerativo</label>
+        <input type="number" step="0.01" name="remunerativo" id="remunerativo" required>
+    </div>
+
+    <div class="form-group">
+        <label for="no_remunerativo">No Remunerativo</label>
+        <input type="number" step="0.01" name="no_remunerativo" id="no_remunerativo" required>
+    </div>
+
+    <input type="submit" value="Guardar">
+</form>
+
+    <!--
     <form method="post">
         <label>Legajo: <input type="number" name="legajo" required></label><br><br>
         <label>Nombre: <input type="text" name="nombre" required></label><br><br>
@@ -29,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label>No Remunerativo: <input type="number" step="0.01" name="no_remunerativo" required></label><br><br>
         <input type="submit" value="Guardar">
     </form>
-
+-->
 </div>
 </body>
 </html>
