@@ -84,10 +84,11 @@ form {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
+    flex-wrap: wrap;
 }
 
 .form-group label {
-    width: 150px; /* ancho fijo para alinear etiquetas */
+    width: 150px;
     margin-right: 10px;
     font-weight: 500;
     color: #333;
@@ -95,6 +96,7 @@ form {
 
 .form-group input {
     flex: 1;
+    min-width: 200px;
     padding: 10px 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -120,4 +122,21 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: #0056b3;
+}
+
+/* Media query para móviles */
+@media (max-width: 600px) {
+    .form-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form-group label {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .form-group input {
+        width: 100%;
+    }
 }

@@ -51,30 +51,52 @@ $emps = $mysqli->query("SELECT empleado_id, nombre, apellido FROM empleados WHER
 <div class="contenido">
     <h1>Registrar Nuevo Embargo</h1>
     <form method="POST">
-        Empleado:
-        <select name="empleado_id" required>
-            <?php while ($e = $emps->fetch_assoc()): ?>
-                <option value="<?= $e['empleado_id'] ?>"><?= $e['empleado_id'] ?> - <?= $e['nombre'] ?> <?= $e['apellido'] ?></option>
-            <?php endwhile; ?>
-        </select><br>
+        <div class="form-group">
+            <label for="empleado_id">Empleado</label>
+            <select name="empleado_id" id="empleado_id" required>
+                <?php while ($e = $emps->fetch_assoc()): ?>
+                    <option value="<?= $e['empleado_id'] ?>">
+                        <?= $e['empleado_id'] ?> - <?= $e['nombre'] ?> <?= $e['apellido'] ?>
+                    </option>
+                <?php endwhile; ?>
+            </select>
+        </div>
 
-        Código:
-        <select name="codigo" id="codigo" required>
-            <option value="450">450</option>
-            <option value="451">451</option>
-            <option value="452">452</option>
-            <option value="453">453</option>
-            <option value="454">454</option>
-            <option value="591">591</option>
-        </select><br>
+        <div class="form-group">
+            <label for="codigo">Código</label>
+            <select name="codigo" id="codigo" required>
+                <option value="450">450</option>
+                <option value="451">451</option>
+                <option value="452">452</option>
+                <option value="453">453</option>
+                <option value="454">454</option>
+                <option value="591">591</option>
+            </select>
+        </div>
 
-        Porcentaje: <input type="number" step="0.01" name="porcentaje" required><br>
-        Expediente: <input type="text" name="expediente" required><br>
-        Oficio: <input type="text" name="oficio" required><br>
-        Cuenta Bancaria: <input type="text" name="cuenta_bancaria" required><br>
+        <div class="form-group">
+            <label for="porcentaje">Porcentaje</label>
+            <input type="number" step="0.01" name="porcentaje" id="porcentaje" required>
+        </div>
 
-        <div id="grupo_monto_total">
-            Monto Total: <input type="number" step="0.01" name="monto_total"><br>
+        <div class="form-group">
+            <label for="expediente">Expediente</label>
+            <input type="text" name="expediente" id="expediente" required>
+        </div>
+
+        <div class="form-group">
+            <label for="oficio">Oficio</label>
+            <input type="text" name="oficio" id="oficio" required>
+        </div>
+
+        <div class="form-group">
+            <label for="cuenta_bancaria">Cuenta Bancaria</label>
+            <input type="text" name="cuenta_bancaria" id="cuenta_bancaria" required>
+        </div>
+
+        <div class="form-group" id="grupo_monto_total">
+            <label for="monto_total">Monto Total</label>
+            <input type="number" step="0.01" name="monto_total" id="monto_total">
         </div>
 
         <button type="submit">Guardar</button>
