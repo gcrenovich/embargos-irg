@@ -38,18 +38,21 @@ a.button:hover {
     background-color: #0056b3;
 }
 
-
 /* Intergración de Estilos CSS */
+a:visited {
+    color: white;
+}
 
 .fondo_menu {
     background: #333;
     padding: 10px;
-
 }
 
-a:hover, a:visited, a:link, a:active {
-    text-decoration: none;
-    color: white;
+.tabla-1 {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px;
 }
 
 /*
