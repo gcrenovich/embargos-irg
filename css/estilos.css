@@ -6,6 +6,7 @@ body {
     margin: 10px;
     padding: 10px;
 }
+
 .container {
     width: 80%;
     margin: auto;
@@ -165,6 +166,8 @@ input[type="submit"]:hover {
     z-index: 1000;
 }
 
+/* Barra de navegación */
+
 .item_menu {
     color: white;
     text-decoration: none;
@@ -194,6 +197,30 @@ input[type="submit"]:hover {
 .item_menu:hover::after {
     width: 100%;
 }
+
+ /* Responsive */
+ @media (max-width: 600px) {
+    .fondo_menu {
+        flex-direction: column;
+    }
+
+    .item_menu {
+        margin: 8px 0;
+    }
+}
+
+/*
+h1 {
+    margin: 0;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+*/
 
 /*
 .item_menu {

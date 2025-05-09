@@ -72,9 +72,12 @@ if (isset($_POST['guardar_embargo'])) {
     <?php if ($empleado): ?>
         <hr>
         <p><strong>Empleado:</strong> <?= $empleado['nombre'] ?> <?= $empleado['apellido'] ?></p>
+        
         <form method="POST">
+            
             <input type="hidden" name="empleado_id" value="<?= $empleado['empleado_id'] ?>">
 
+            <div class="form-group">
             <label for="codigo">Código:</label>
             <select name="codigo" id="codigo" required>
                 <option value="450">450</option>
@@ -83,31 +86,43 @@ if (isset($_POST['guardar_embargo'])) {
                 <option value="453">453</option>
                 <option value="454">454</option>
                 <option value="591">591</option>
-            </select><br>
+            </select>
+            </div><br>
 
-            <label>Porcentaje:</label>
-            <input type="number" step="0.01" name="porcentaje" required><br>
+            <div class="form-group">
+            <label for="porcentaje">Porcentaje:</label>
+            <input type="number" step="0.01" name="porcentaje" id="porcentaje" required>
+            </div><br>
 
-            <label>Expediente:</label>
-            <input type="text" name="expediente" required><br>
+            <div class="form-group">
+            <label for="expediente">Expediente:</label>
+            <input type="text" name="expediente" id="expediente" required>
+            </div><br>
 
-            <label>Oficio:</label>
-            <input type="text" name="oficio" required><br>
+            <div class="form-group">
+            <label for="oficio">Oficio:</label>
+            <input type="text" name="oficio" id="oficio" required>
+            </div><br>
 
-            <label>Cuenta Bancaria:</label>
-            <input type="text" name="cuenta_bancaria" required><br>
+            <div class="form-group">
+            <label for="cuenta_bancaria">Cuenta Bancaria:</label>
+            <input type="text" name="cuenta_bancaria" id="cuenta_bancaria" required>
+            </div><br>
 
-            <div id="grupo_monto_total">
-                <label>Monto Total:</label>
-                <input type="number" step="0.01" name="monto_total"><br>
-            </div>
+            <div class="form-group" id="grupo_monto_total">
+                <label for="monto_total">Monto Total:</label>
+                <input type="number" step="0.01" name="monto_total" id="monto_total">
+            </div></br>
 
             <button type="submit" name="guardar_embargo">Guardar</button>
+
         </form>
     <?php endif; ?>
 
     <br>
-    <a href="embargos.php"><button>Volver al listado</button></a>
+    <a href="embargos.php">
+        <button>Volver al listado</button>
+    </a>
 </div>
 </body>
 </html>
