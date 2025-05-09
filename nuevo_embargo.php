@@ -1,28 +1,29 @@
 <?php
-include 'includes/db.php';
+    include 'includes/db.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $empleado = $_POST['empleado_id'];
-    $codigo = $_POST['codigo'];
-    $porcentaje = $_POST['porcentaje'];
-    $exp = $_POST['expediente'];
-    $ofi = $_POST['oficio'];
-    $cuenta = $_POST['cuenta_bancaria'];
-   // $monto_total = $_POST['monto_total'];
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $empleado = $_POST['empleado_id'];
+        $codigo = $_POST['codigo'];
+        $porcentaje = $_POST['porcentaje'];
+        $exp = $_POST['expediente'];
+        $ofi = $_POST['oficio'];
+        $cuenta = $_POST['cuenta_bancaria'];
+        // $monto_total = $_POST['monto_total'];
 
-//    $mysqli->query("INSERT INTO embargos (empleado_id, codigo, porcentaje, expediente, oficio, cuenta_bancaria, monto_total, monto_acumulado, estado) VALUES 
-  //      ($empleado, $codigo, $porcentaje, '$exp', '$ofi', '$cuenta', $monto_total, 0, 'activo')");
-   // header('Location: embargos.php');
-    //exit;
-    //
-    $monto_total = isset($_POST['monto_total']) && $_POST['monto_total'] !== "" ? $_POST['monto_total'] : 0;
+        //  $mysqli->query("INSERT INTO embargos (empleado_id, codigo, porcentaje, expediente, oficio, cuenta_bancaria, monto_total, monto_acumulado, estado) VALUES 
+        //  ($empleado, $codigo, $porcentaje, '$exp', '$ofi', '$cuenta', $monto_total, 0, 'activo')");
+        // header('Location: embargos.php');
+        //exit;
+        
+        $monto_total = isset($_POST['monto_total']) && $_POST['monto_total'] !== "" ? $_POST['monto_total'] : 0;
 
-$mysqli->query("INSERT INTO embargos (empleado_id, codigo, porcentaje, expediente, oficio, cuenta_bancaria, monto_total, monto_acumulado, estado) VALUES 
-    ($empleado, $codigo, $porcentaje, '$exp', '$ofi', '$cuenta', $monto_total, 0, 'activo')");
-}
+        $mysqli->query("INSERT INTO embargos (empleado_id, codigo, porcentaje, expediente, oficio, cuenta_bancaria, monto_total, monto_acumulado, estado) VALUES 
+        ($empleado, $codigo, $porcentaje, '$exp', '$ofi', '$cuenta', $monto_total, 0, 'activo')");
+    }
 
-$emps = $mysqli->query("SELECT empleado_id, nombre, apellido FROM empleados WHERE activo=1");
+    $emps = $mysqli->query("SELECT empleado_id, nombre, apellido FROM empleados WHERE activo=1");
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -47,10 +48,13 @@ $emps = $mysqli->query("SELECT empleado_id, nombre, apellido FROM empleados WHER
     </script>
 </head>
 <body>
-<?php include 'includes/menu.php'; ?>
-<div class="contenido">
-    <h1>Registrar Nuevo Embargo</h1>
-    <form method="POST">
+    <?php include 'includes/menu.php'; ?>
+    <div class="contenido">
+        
+        <h1>Registrar Nuevo Embargo</h1>
+    
+        <form method="POST">
+        
         <div class="form-group">
             <label for="empleado_id">Empleado</label>
             <select name="empleado_id" id="empleado_id" required>
@@ -100,8 +104,14 @@ $emps = $mysqli->query("SELECT empleado_id, nombre, apellido FROM empleados WHER
         </div>
 
         <button type="submit">Guardar</button>
-    </form>
-    <a href="embargos.php">Volver al listado</a>
-</div>
+        
+        </form>
+        <br>
+        
+    <a href="embargos.php">
+        <button>Volver al listado</button>
+    </a>
+
+    </div>
 </body>
 </html>
