@@ -1,23 +1,23 @@
 <?php
-include 'includes/db.php';
+    include 'includes/db.php';
 
-// Finalizar automáticamente embargos comerciales y vivienda si monto_acumulado >= monto_total
-$mysqli->query("UPDATE embargos 
-    SET estado = 'finalizado' 
-    WHERE estado = 'activo' 
-      AND codigo IN (451, 452, 591) 
-      AND monto_acumulado >= monto_total");
+    // Finalizar automáticamente embargos comerciales y vivienda si monto_acumulado >= monto_total
+    $mysqli->query("UPDATE embargos 
+        SET estado = 'finalizado' 
+        WHERE estado = 'activo' 
+        AND codigo IN (451, 452, 591) 
+        AND monto_acumulado >= monto_total");
 
-// Finalizar automáticamente embargos de alimentos si acumulado >= total (según pedido)
-$mysqli->query("UPDATE embargos 
-    SET estado = 'finalizado' 
-    WHERE estado = 'activo' 
-      AND codigo IN (450, 452, 453, 454) 
-      AND monto_acumulado >= monto_total");
+    // Finalizar automáticamente embargos de alimentos si acumulado >= total (según pedido)
+    $mysqli->query("UPDATE embargos 
+        SET estado = 'finalizado' 
+        WHERE estado = 'activo' 
+        AND codigo IN (450, 452, 453, 454) 
+        AND monto_acumulado >= monto_total");
 
-$result = $mysqli->query("SELECT e.id, e.empleado_id, emp.nombre, emp.apellido, e.codigo, e.porcentaje, e.expediente, e.oficio, e.cuenta_bancaria, e.monto_total, e.monto_acumulado, e.estado 
-    FROM embargos e 
-    JOIN empleados emp ON e.empleado_id = emp.empleado_id");
+    $result = $mysqli->query("SELECT e.id, e.empleado_id, emp.nombre, emp.apellido, e.codigo, e.porcentaje, e.expediente, e.oficio, e.cuenta_bancaria, e.monto_total, e.monto_acumulado, e.estado 
+        FROM embargos e 
+        JOIN empleados emp ON e.empleado_id = emp.empleado_id");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -30,8 +30,10 @@ $result = $mysqli->query("SELECT e.id, e.empleado_id, emp.nombre, emp.apellido, 
     <?php include 'includes/menu.php'; ?>
     <div class="contenido">
     <h1>Listado de Embargos</h1>
-    <a href="nuevo_embargo.php">Nuevo Embargo</a><br><br>
-    <table border="1" cellpadding="5" cellspacing="0">
+    <a href="nuevo_embargo.php">
+        <button>Nuevo Embargo</button>
+    </a><br>
+    <table class="tabla-1">
         <tr>
             <th>ID</th><th>Empleado</th><th>Código</th><th>%</th><th>Expediente</th><th>Oficio</th><th>Cuenta</th><th>Monto Total</th><th>Acumulado</th><th>Estado</th><th>Acciones</th>
         </tr>
@@ -62,5 +64,5 @@ $result = $mysqli->query("SELECT e.id, e.empleado_id, emp.nombre, emp.apellido, 
         <?php endwhile; ?>
     </table>
     </div>
-</body>
+ </body>
 </html>
