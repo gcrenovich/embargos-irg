@@ -152,6 +152,49 @@ input[type="submit"]:hover {
     }
 }
 
+.fondo_menu {
+    background-color: #444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    flex-wrap: wrap;
+    position: sticky; /* navbar fijo opcional */
+    top: 0;
+    z-index: 1000;
+}
+
+.item_menu {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    position: relative;
+}
+
+.item_menu:hover {
+    background-color: #5c5c5c;
+    transform: translateY(-2px);
+}
+
+.item_menu::after {
+    content: "";
+    display: block;
+    margin: auto;
+    height: 2px;
+    width: 0;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.item_menu:hover::after {
+    width: 100%;
+}
+
 /*
 .item_menu {
     display: flex;
